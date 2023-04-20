@@ -5,7 +5,9 @@
  import Clientes from './clientes/Clientes.vue';
  
  const props = defineProps(['propriedades']);
-
+ const clienteOk =props.propriedades.clienteOk;
+ const cliente =props.propriedades.cliente;
+// console.log(cliente[0].cliente_nome_fantasia);
 </script>
 
 <template>
@@ -55,7 +57,7 @@
             <div class='float-right xl:w-11/12 sm:w-12/12 t-0 p-2.5 mt-0'>
                 <div  class=" min-h-screen bg-white overflow-hidden shadow-xl sm:rounded-lg  border-2 border-blue-500">
                     <div v-if="props.propriedades.clienteOk">
-                        <Clientes :dados="props.propriedades.cliente">
+                        <Clientes :dados="cliente">
                         </Clientes>
                     </div>
                      

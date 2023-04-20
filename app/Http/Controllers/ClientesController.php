@@ -13,13 +13,21 @@ class ClientesController extends Controller
     /**
      * Display a listing of the resource.
      */
+
+    protected $fillable=[
+        'cliente_razao_social',
+        'cliente_nome_fantasia',
+        'cliente_cnpj',
+        'cliente_cpf',
+        'cliente_inscricao_estatadual',
+        'cliente_flag_simples_nacional',
+        'cliente_flag_pessoa_juridica',
+        'cliente_flag_pre_cadastro',
+    ];
+
     public function index(Request $request)
     {
-        $cliente =new stdClass();
-        $cliente->id= '1' ;
-        $cliente->nome="Estevo";
-        $cliente->idade="40";
-        $cliente->sexo="Macho";
+        $cliente=Clientes::all();
         return Inertia::render('Cadastros',[ 'propriedades'=>['cliente'=>$cliente,'clienteOk'=>true]]);
         // return Inertia::render('clientes/clientes');
     }
