@@ -4,12 +4,7 @@
  import NavLink from '../Components/NavLink.vue';
  import Clientes from './clientes/Clientes.vue';
  
-
-const clienteOk='false';
-// const cliente={'name':'aaa'};
-const props = defineProps(['cliente']);
- 
-// console.log(props.cliente.nome);
+ const props = defineProps(['propriedades']);
 
 </script>
 
@@ -59,11 +54,9 @@ const props = defineProps(['cliente']);
             </div>
             <div class='float-right xl:w-11/12 sm:w-12/12 t-0 p-2.5 mt-0'>
                 <div  class=" min-h-screen bg-white overflow-hidden shadow-xl sm:rounded-lg  border-2 border-blue-500">
-                    <div v-if="clienteOk">
-                        <Clientes :dados="props.cliente">
+                    <div v-if="props.propriedades.clienteOk">
+                        <Clientes :dados="props.propriedades.cliente">
                         </Clientes>
-                        
-
                     </div>
                      
                     

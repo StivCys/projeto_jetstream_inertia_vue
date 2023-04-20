@@ -16,10 +16,11 @@ class ClientesController extends Controller
     public function index(Request $request)
     {
         $cliente =new stdClass();
+        $cliente->id= '1' ;
         $cliente->nome="Estevo";
         $cliente->idade="40";
         $cliente->sexo="Macho";
-        return Inertia::render('Cadastros',['cliente'=>$cliente]);
+        return Inertia::render('Cadastros',[ 'propriedades'=>['cliente'=>$cliente,'clienteOk'=>true]]);
         // return Inertia::render('clientes/clientes');
     }
 
@@ -52,7 +53,7 @@ class ClientesController extends Controller
      */
     public function edit(Clientes $clientes)
     {
-        //
+        echo "Editando cliente";
     }
 
     /**
