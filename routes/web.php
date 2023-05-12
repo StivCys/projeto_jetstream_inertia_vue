@@ -34,7 +34,8 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');
+    Route::resource('/cadastros',CadastrosController::class);
+    Route::resource('/clientes',ClientesController::class);
 });
 
-Route::resource('/cadastros',CadastrosController::class);
-Route::resource('/clientes',ClientesController::class);
+

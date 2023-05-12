@@ -15,7 +15,7 @@ class CadastrosController extends Controller
     {
         //
         
-        return Inertia::render('Cadastros',['propriedades'=>['clienteOk'=>false]]);
+        return Inertia::render('Cadastros',['propriedades'=>['title'=>"Cadastros",'clienteOk'=>false]]);
         // render('Cadastros',['aaa']);
 
     }

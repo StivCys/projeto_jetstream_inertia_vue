@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Controllers\Route;
 
 use App\Models\Clientes;
 use Illuminate\Http\Request;
@@ -27,8 +28,9 @@ class ClientesController extends Controller
 
     public function index(Request $request)
     {
-        $cliente=Clientes::all();
-        return Inertia::render('Cadastros',[ 'propriedades'=>['cliente'=>$cliente,'clienteOk'=>true]]);
+        $clientes=Clientes::all();
+        // return Inertia::render('Cadastros',['propriedades'=>['clientes'=>$clientes,'clienteOk'=>true]]);
+        return Inertia::render('appAdmin/clientes/Clientes',['propriedades'=>['title'=>"Listar Clientes",'clientes'=>$clientes,'clienteOk'=>true]]);
         // return Inertia::render('clientes/clientes');
     }
 
@@ -59,9 +61,22 @@ class ClientesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Clientes $clientes)
-    {
-        echo "Editando cliente";
+    public function edit(Clientes $cliente, Request $request)
+    {   
+        
+        // echo "Editando cliente".$cliente->id;
+        $clienteF=Clientes::find($cliente->id);
+        // dd($cliente);
+        if($clienteF==$cliente){
+            // echo "Editando cliente".$cliente->id;
+            // dd($cliente);
+        }
+
+        $token = $request->session()->token();
+        $token = csrf_token();
+        
+        return Inertia::render('appAdmin/clientes/EditCliente',[ 'propriedades'=>['title'=>'Editar Cliente','cliente'=>$clienteF,'clienteOk'=>true,'editClienteOk'=>true,'csrf'=>$token]]);
+        // return Inertia::render('Cadastros',[ 'propriedades'=>['cliente'=>$clienteF,'clienteOk'=>true,'editClienteOk'=>true,'csrf'=>$token]]);
     }
 
     /**
@@ -70,6 +85,8 @@ class ClientesController extends Controller
     public function update(Request $request, Clientes $clientes)
     {
         //
+        dd($request);
+        $cliente=Clientes::find($clientes->id);
     }
 
     /**
