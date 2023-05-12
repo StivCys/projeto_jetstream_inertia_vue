@@ -75,6 +75,5 @@ let editing = props.propriedades.editClienteOk;
 input {
     border: 3px solid rgb(18, 163, 105);
     width: 350px;
-    text: center;
 }
 </style>
