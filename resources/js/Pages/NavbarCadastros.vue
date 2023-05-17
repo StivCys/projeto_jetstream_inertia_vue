@@ -1,6 +1,6 @@
 <script setup>
 // import { router, Link } from '@inertiajs/vue3'
-import NavLink from '../Components/NavLink.vue';
+import NavLinkMenu from '../Components/NavLinkMenu.vue';
 
 const prop = defineProps(['title'])
 const title = prop.title
@@ -8,41 +8,50 @@ const title = prop.title
 
 
 <template >
-    <div class='text-center w-full float-left'>
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ title}}
-        </h2>
-    </div>
     <div class="px-2 float-left max-w-2">
         <div class="float-left  mt-2">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg border-2 border-red-500 ">
-                <NavLink :href="route('clientes.index')">
-                    <i class="fa-solid fa-user text-orange-700"> &nbsp; </i> Clientes
-                </NavLink>
+                <div class="border-b-2 pb-2">
+                    <NavLinkMenu :href="route('clientes.index')" :active="route().current('clientes.index')">
+                        <i class="fa-solid fa-user text-orange-700"> &nbsp; </i> Clientes
+                    </NavLinkMenu>
+                </div>
                 <br>
-                <NavLink>
-                    <i class="fa-solid fa-truck-field-un text-blue-700"> &nbsp; </i> Forncedores
-                </NavLink>
+                <div class="border-b-2 pb-2">
+                    <NavLinkMenu>
+                        <i class="fa-solid fa-truck-field-un text-blue-700"> &nbsp; </i> Forncedores
+                    </NavLinkMenu>
+                </div>
                 <br>
-                <NavLink>
-                    <i class="fa-solid fa-truck-fast text-green-700"> &nbsp; </i>Transportadoras
-                </NavLink>
+                <div class="border-b-2 pb-2">
+                    <NavLinkMenu>
+                        <i class="fa-solid fa-truck-fast text-green-700"> &nbsp; </i>Transportadoras
+                    </NavLinkMenu>
+                </div>
                 <br>
-                <NavLink>
-                    <i class="fa-solid fa-list text-yellow-700"> &nbsp; </i> Produtos
-                </NavLink>
+                <div class="border-b-2 pb-2">
+                    <NavLinkMenu>
+                        <i class="fa-solid fa-list text-yellow-700"> &nbsp; </i> Produtos
+                    </NavLinkMenu>
+                </div>
                 <br>
-                <NavLink>
-                    <i class="fa-solid fa-user text-red-700"> &nbsp; </i>Usuarios
-                </NavLink>
+                <div class="border-b-2 pb-2">
+                    <NavLinkMenu>
+                        <i class="fa-solid fa-user text-red-700"> &nbsp; </i>Usuarios
+                    </NavLinkMenu>
+                </div>
                 <br>
-                <NavLink>
-                    <i class="fa-solid fa-address-card text-violet-700"> &nbsp; </i>Perfis de Usuario
-                </NavLink>
+                <div class="border-b-2 pb-2">
+                    <NavLinkMenu>
+                        <i class="fa-solid fa-address-card text-violet-700"> &nbsp; </i>Perfis de Usuario
+                    </NavLinkMenu>
+                </div>
                 <br>
-                <NavLink>
-                    <i class="fa-solid fa-link text-orange-500">&nbsp;</i> Vincular Perfis
-                </NavLink>
+                <div class="border-b-2 pb-2">
+                    <NavLinkMenu>
+                        <i class="fa-solid fa-link text-orange-500">&nbsp;</i> Vincular Perfis
+                    </NavLinkMenu>
+                </div>
             </div>
         </div>
     </div>
